@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Webpage</title>
+</head>
+<body>
+    <form method="POST" align="center">
+        {% csrf_token %}
+        webpageTopic:<select name="topic" id="topic">
+            {% for topic in topics %}
+                {% if topic.topic_name == webpage.topic.topic_name %}
+                <option value="{{topic}}" selected>{{topic.topic_name}}</option>
+                {% else %}
+                <option value="{{topic}}">{{topic.topic_name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        WebpageName:<input type="text" name="name" id="name" value="{{webpage.name}}">
+        WebpageUrl:<input type="text" name="url" id="url" value="{{webpage.url}}">
+
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

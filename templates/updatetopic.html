@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Topic</title>
+</head>
+<body>
+    <form align="center" method="POST">
+        {% csrf_token %}
+        
+        Update Topic:<input type="text" name="topic" id="topic" value="{{topic.topic_name}}">
+        <input type="submit" value="Update Topic">
+        
+    </form>
+</body>
+</html>
